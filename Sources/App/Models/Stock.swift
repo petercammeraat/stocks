@@ -5,10 +5,7 @@
 //  Created by Peter Cammeraat on 08/11/2023.
 //
 
-import Foundation
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
+import AsyncHTTPClient
 import Vapor
 
 struct Stock: Codable {
@@ -95,8 +92,17 @@ extension Stock {
         let baseUrl = "https://api.polygon.io/v2/"
         let api = "aggs/ticker/\(search.ticker.uppercased())/range/1/day/\(search.from)/\(search.to)?apiKey=\(apiKey)"
 
-        let url = URL(string: baseUrl + api)!
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let url = baseUrl + api
+
+        let httpClient = HTTPClient(eventLoopGroupProvider: .singleton)
+        let request = HTTPClientRequest(url: url)
+        let response = try await httpClient.execute(request, timeout: .seconds(30))
+
+        let data = try await response.body.collect(upTo: 1024 * 1024) // 1 MB
+
+        // Important to shut the http client down
+        try await httpClient.shutdown()
+
         return try JSONDecoder().decode(Stock.self, from: data)
     }
 }
