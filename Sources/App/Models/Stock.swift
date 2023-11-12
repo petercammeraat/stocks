@@ -5,6 +5,10 @@
 //  Created by Peter Cammeraat on 08/11/2023.
 //
 
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 import Vapor
 
 struct Stock: Codable {
