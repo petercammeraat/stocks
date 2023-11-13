@@ -1,11 +1,11 @@
 //
-//  Date.swift
-//  
-//
-//  Created by Peter Cammeraat on 08/11/2023.
+//  Data.swift
+//  Stocks
+//  BSD 3-Clause License
+//  Copyright 2023 Peter Cammeraat
 //
 
-import Foundation
+import Vapor
 
 extension Data {
     /// NSString gives us a nice sanitized debugDescription

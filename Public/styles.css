@@ -1,3 +1,10 @@
+/*
+  styles.css
+  Stocks
+  BSD 3-Clause License
+  Copyright 2023 Peter Cammeraat
+*/
+
 /* Box sizing rules */
 *, *::before, *::after {
     box-sizing: border-box;

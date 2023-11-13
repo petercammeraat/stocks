@@ -1,8 +1,8 @@
 //
 //  SearchPayload.swift
-//
-//
-//  Created by Peter Cammeraat on 12/11/2023.
+//  Stocks
+//  BSD 3-Clause License
+//  Copyright 2023 Peter Cammeraat
 //
 
 import Vapor

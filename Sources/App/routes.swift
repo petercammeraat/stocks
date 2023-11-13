@@ -1,3 +1,10 @@
+//
+//  routes.swift
+//  Stocks
+//  BSD 3-Clause License
+//  Copyright 2023 Peter Cammeraat
+//
+
 import Vapor
 
 func routes(_ app: Application) throws {
@@ -11,7 +18,6 @@ func routes(_ app: Application) throws {
         return response
     }
     .description("Index page")
-
 
     app.post("search") { req -> Response in
         let data = try req.content.decode(SearchPayload.self)

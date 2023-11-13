@@ -1,8 +1,8 @@
 //
 //  HTMXController.swift
-//
-//
-//  Created by Peter Cammeraat on 09/11/2023.
+//  Stocks
+//  BSD 3-Clause License
+//  Copyright 2023 Peter Cammeraat
 //
 
 import Vapor
@@ -10,6 +10,9 @@ import WebHtmx
 
 class HTMXController {
     static func makeIndex() -> Vapor.Data {
+        let today = Date().convertToOnlyDate
+        let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: Date())?.convertToOnlyDate
+
         var doc: Document {
             Document(.html) {
                 Html(lang: Lang(.en, .gb)) {
@@ -24,23 +27,25 @@ class HTMXController {
                     Body {
                         Main {
                             Form {
-                                Label("Ticker")
+                                Label("Ticker:")
                                 Input()
                                     .type(.text)
                                     .name("ticker")
                                     .id("ticker")
 
-                                Label("From date")
+                                Label("From date:")
                                 Input()
                                     .type(.date)
                                     .name("from")
                                     .id("from")
+                                    .value(sevenDaysAgo)
 
-                                Label("To date")
+                                Label("To date:")
                                 Input()
                                     .type(.date)
                                     .name("to")
                                     .id("to")
+                                    .value(today)
 
                                 Button("Search")
                                     .type(.submit)
