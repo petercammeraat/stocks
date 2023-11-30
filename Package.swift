@@ -16,7 +16,7 @@ let package = Package(
             name: "App",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
-                .product(name: "WebHtmx", package: "swift-web-frontend"),
+                .product(name: "WebHTMX", package: "swift-web-frontend"),
             ]
         ),
         .testTarget(name: "AppTests", dependencies: [

@@ -6,7 +6,7 @@
 //
 
 import Vapor
-import WebHtmx
+import WebHTMX
 
 class HTMXController {
     static func makeIndex() -> Vapor.Data {
