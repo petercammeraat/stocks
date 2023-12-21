@@ -9,7 +9,7 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.83.1"),
-        .package(url: "https://github.com/petercammeraat/swift-web-frontend", branch: "main")
+        .package(url: "https://github.com/petercammeraat/swift-web-frontend", branch: "develop")
     ],
     targets: [
         .executableTarget(
