@@ -2,7 +2,7 @@
 //  Int.swift
 //  Stocks
 //  BSD 3-Clause License
-//  Copyright 2023 Peter Cammeraat
+//  Copyright 2024 Peter Cammeraat
 //
 
 import Vapor
